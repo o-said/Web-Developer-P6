@@ -3,7 +3,7 @@ const router = express.Router();
 const sauceCtrl = require('../controllers/sauce');
 
 const multer = require('../middleware/multer-config'); // Importation du middleware multer pour la gestion des fichiers images
-const authentification = require('../middleware/authentification'); // Importation du middleware d'authentification
+const authentification = require('../middleware/auth'); // Importation du middleware d'authentification
 
 //routes des sauces
 router.post('/', authentification, multer, sauceCtrl.createSauce); // Création d'une sauce

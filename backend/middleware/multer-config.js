@@ -9,9 +9,7 @@ const MIME_TYPES = {
     'image/gif': 'gif',
     'image/webp': 'webp',
     'image/svg+xml': 'svg',
-    'image/bmp': 'bmp',
-    'image/tiff': 'tiff',
-    'image/tif': 'tif',    
+       
 };
 // Création d'un objet de configuration pour multer
 const storage = multer.diskStorage({
@@ -22,11 +20,8 @@ const storage = multer.diskStorage({
     filename: (req, file, callback) => {
         const name = file.originalname.replace(' ','_'); // Remplacement des espaces par des underscores
         const extension = MIME_TYPES[file.mimetype]; // Récupération du type MIME
-        if (extension === 'svg' ||
-            extension === 'tif' || 
-            extension === 'tiff' ||
+        if (extension === 'svg' ||       
             extension === 'webp' || 
-            extension === 'bmp' || 
             extension === 'gif' || 
             extension === 'png' || 
             extension === 'jpg' || 
