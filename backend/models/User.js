@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator'); // mongoose-unique-validator is a plugin which adds pre-save validation for unique fields within a Mongoose schema.
+const uniqueValidator = require('mongoose-unique-validator'); // mongoose-unique-validator est un plugin qui ajoute une validation de pré-enregistrement pour les champs uniques dans un schéma Mongoose.
 
 const userSchema = mongoose.Schema({
-    email: { type: String, required: true, unique: true }, // unique: true is not a validator, it's just a shortcut to create an index in the background
+    email: { type: String, required: true, unique: true }, // unique : true n'est pas un validateur, c'est juste un raccourci pour créer un index en arrière-plan
     password: { type: String, required: true }
 });
-userSchema.plugin(uniqueValidator); // mongoose-unique-validator is a plugin which adds pre-save validation for unique fields within a Mongoose schema.
-module.exports = mongoose.model('User', userSchema); // The first argument is the singular name of the collection your model is for. Mongoose automatically looks for the plural, lowercased version of your model name. Thus, for the example above, the model Tank is for the tanks collection in the database.
+
+userSchema.plugin(uniqueValidator); // mongoose-unique-validator est un plugin qui ajoute une validation de pré-enregistrement pour les champs uniques dans un schéma Mongoose.
+
+module.exports = mongoose.model('User', userSchema); // Le premier argument est le nom singulier de la collection à laquelle votre modèle est destiné. Mongoose recherche automatiquement la version plurielle et minuscule du nom de votre modèle. Ainsi, pour l'exemple ci-dessus, le modèle Réservoir est pour la collection de réservoirs dans la base de données.

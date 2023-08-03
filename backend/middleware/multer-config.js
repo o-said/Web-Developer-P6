@@ -9,7 +9,7 @@ const MIME_TYPES = {
     'image/gif': 'gif',
     'image/webp': 'webp',
     'image/svg+xml': 'svg',
-       
+        
 };
 // Création d'un objet de configuration pour multer
 const storage = multer.diskStorage({

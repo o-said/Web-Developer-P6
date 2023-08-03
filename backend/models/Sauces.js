@@ -12,4 +12,4 @@ const sauceSchema = mongoose.Schema({
     usersLiked: { type: [String], default : [] }, // Tableau d'identifiants d'utilisateurs ayant aimé la sauce
     usersDisliked: { type: [String], default : [] }, // Tableau d'identifiants d'utilisateurs n'ayant pas aimé la sauce
 });
-module.exports = mongoose.model('Sauce', sauceSchema); // The first argument is the singular name of the collection your model is for. Mongoose automatically looks for the plural, lowercased version of your model name. Thus, for the example above, the model Tank is for the tanks collection in the database.
+module.exports = mongoose.model('Sauce', sauceSchema); // Le premier argument est le nom singulier de la collection à laquelle votre modèle est destiné. Mongoose recherche automatiquement la version plurielle et minuscule du nom de votre modèle. Ainsi, pour l'exemple ci-dessus, le modèle Réservoir est pour la collection de réservoirs dans la base de données.
