@@ -11,10 +11,10 @@ const sauceRoutes = require('./routes/sauce');//on importe le routeur sauce
 
 require('dotenv').config();//on importe dotenv pour masquer les informations sensibles
 
-mongoose.connect(process.env.MONGO_URL,
-    { useNewUrlParser: true,
-        useUnifiedTopology: true,
-        //useCreateIndex: true
+mongoose.connect(process.env.MONGO_URL,//on se connecte à la base de données MongoDB
+    { useNewUrlParser: true,//on utilise le nouveau parser d'URL pour se connecter à MongoDB
+        useUnifiedTopology: true,//on utilise le nouveau moteur de monitoring et de découverte de serveur
+        
         
     })
     .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_URL,
 //on ajoute des headers à notre objet réponse pour permettre à notre application d'accéder à notre API depuis n'importe quelle origine
 
 
-app.use((req, res, next) => {
+app.use((req, res, next) => {//on ajoute des headers à notre objet réponse pour permettre à notre application d'accéder à notre API depuis n'importe quelle origine
     res.setHeader('Access-Control-Allow-Origin', '*');//on ajoute des headers à notre objet réponse pour permettre à notre application d'accéder à notre API depuis n'importe quelle origine
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');//on ajoute des headers à notre objet réponse pour permettre à notre application d'accéder à notre API depuis n'importe quelle origine
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');//on ajoute des headers à notre objet réponse pour permettre à notre application d'accéder à notre API depuis n'importe quelle origine
@@ -39,5 +39,5 @@ app.use('/api/auth', userRoutes);//on utilise le routeur user pour toutes les de
 
 app.use('/api/sauces', sauceRoutes);//on utilise le routeur sauce pour toutes les demandes effectuées vers /api/sauces
 
-module.exports = app;//on exporte l'application
+module.exports = app;//on exporte l'application pour y accéder depuis les autres fichiers du projet
 

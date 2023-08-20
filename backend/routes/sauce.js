@@ -13,4 +13,4 @@ router.get('/:id', authentification, sauceCtrl.getOneSauce); // Récupération d
 router.get('/', authentification, sauceCtrl.getAllSauces); // Récupération de toutes les sauces
 router.post('/:id/like', authentification, sauceCtrl.likeSauce); // Like ou dislike d'une sauce
 
-module.exports = router;
+module.exports = router;//exportation du router vers app.js

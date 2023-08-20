@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const sauceSchema = mongoose.Schema({
+const sauceSchema = mongoose.Schema({//on crée un schéma de données pour les sauces avec mongoose
     userId: { type: String, required: true }, // Identifiant unique MongoDB pour l'utilisateur qui a créé la sauce  
     name: { type: String, required: true }, // Nom de la sauce
     manufacturer: { type: String, required: true }, // Fabricant de la sauce

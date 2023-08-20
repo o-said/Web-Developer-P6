@@ -3,7 +3,7 @@ const uniqueValidator = require('mongoose-unique-validator'); // mongoose-unique
 
 const userSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true }, // unique : true n'est pas un validateur, c'est juste un raccourci pour créer un index en arrière-plan
-    password: { type: String, required: true }
+    password: { type: String, required: true }//on définit le schéma de mot de passe avec le package password-validator qui permet de définir des règles de validation pour les mots de passe
 });
 
 userSchema.plugin(uniqueValidator); // mongoose-unique-validator est un plugin qui ajoute une validation de pré-enregistrement pour les champs uniques dans un schéma Mongoose.
